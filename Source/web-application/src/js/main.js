@@ -62,7 +62,7 @@
 
   async function loadGoogleReviews() {
     try {
-      const res = await fetch("http://localhost:3000/reviews");
+      const res = await fetch("https://app-studjisocjalimt-api-eshkdkeednb5bchn.canadacentral-01.azurewebsites.net/reviews");
       const { reviews } = await res.json();
       const container = document.getElementById("reviews-wrapper");
       container.innerHTML = "";

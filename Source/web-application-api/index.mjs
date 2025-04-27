@@ -10,8 +10,10 @@ import reviewsRoutes from "./routes/reviews-routes.mjs";
 const app = express();
 const port = process.env.PORT || 3000;
 
-const swaggerDocs = swaggerJsdoc(swaggerConfig);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+if (process.env.SWAGGER_ENABLED == 1) {
+  const swaggerDocs = swaggerJsdoc(swaggerConfig);
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+}
 
 app.use(
   cors({
@@ -34,7 +36,10 @@ app.use("/reviews", reviewsRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
-  console.log(
-    `Swagger docs are available at http://localhost:${port}/api-docs`
-  );
+
+  if (process.env.SWAGGER_ENABLED == 1) {
+    console.log(
+      `Swagger docs are available at http://localhost:${port}/api-docs`
+    );
+  }
 });
