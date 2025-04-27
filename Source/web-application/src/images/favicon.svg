@@ -1,0 +1,20 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 48 32"
+>
+  <defs>
+    <linearGradient id="logo-a" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#007CFE" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#007DFF"/>
+    </linearGradient>
+    <linearGradient id="logo-b" x1="100%" y1="50%" x2="0%" y2="50%">
+      <stop offset="0%" stop-color="#FF4F7A" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FF4F7A"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="none" fill-rule="evenodd">
+    <text x="0" y="26" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#logo-a)">S</text>
+    <text x="10" y="26" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#logo-b)">S</text>
+  </g>
+</svg>
