@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="mt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StudjiSoċjali.mt — Lezzjonijiet ta' Studji Soċjali u Soċjoloġija</title>
+<meta name="description" content="Private O-Level Social Studies, Intermediate and A-Level Sociology tuition in Malta, with exam-driven notes in English and Maltese.">
+<meta name="theme-color" content="#FFF6E9">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+:root{
+  --ink:#16143A; --ink-2:#3B3960; --cream:#FFF6E9; --white:#ffffff;
+  --blue:#3A4BFF; --blue-tint:#E3E6FF; --sun:#FFC23D; --pink:#FF9EC7; --mint:#19B394; --lilac:#C9B8FF;
+  --line:#EDE7F7; --err-bg:#FFE3EE; --err:#8C1D18; --err-line:#B3261E;
+  --display:'Bricolage Grotesque','Arial Black',system-ui,sans-serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(16px,5vw,80px);
+  --max:1280px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;overflow-x:clip}
+a{color:inherit}
+img,svg{max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-0.03em;line-height:1;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:calc(var(--max) + 2*var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.lead{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);max-width:34em}
+.h2{font-size:clamp(38px,5vw,64px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;border:2.5px solid var(--ink);font:700 17px/1.1 var(--body);text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn-blue{background:var(--blue);color:var(--white)}
+.btn-white{background:var(--white);color:var(--ink)}
+.btn-ink{background:var(--ink);color:var(--cream);box-shadow:4px 4px 0 var(--sun)}
+.btn-ink:hover{box-shadow:6px 6px 0 var(--sun)}
+.sticker{border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--cream) 92%,transparent);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:88px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex-shrink:0}
+.brand svg{height:46px;width:auto;display:block}
+.brand span{font-family:var(--display);font-weight:800;font-size:clamp(19px,2vw,25px);letter-spacing:-0.02em}
+.brand b{color:var(--blue);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:32px;font-weight:500}
+.nav-links a:not(.btn){text-decoration:none}
+.nav-links a:not(.btn):hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--sun)}
+.nav-links .btn{min-height:46px;padding:0 22px;font-size:16px}
+.nav-tools{display:flex;align-items:center;gap:10px}
+.lang{display:flex;align-items:center;gap:2px;background:var(--white);border:2.5px solid var(--ink);border-radius:999px;padding:4px}
+.lang svg{margin:0 4px 0 8px}
+.lang button{min-width:44px;min-height:38px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--ink);font:700 15px var(--body);cursor:pointer}
+.lang{position:relative}
+.lang .knob,.tabs .ind{position:absolute;left:0;top:0;width:0;height:0;border-radius:999px;z-index:0;pointer-events:none}
+.lang .knob{background:var(--sun);box-shadow:inset 0 0 0 2px var(--ink)}
+.lang.ready .knob,.tabs.ready .ind{transition:transform .5s cubic-bezier(.34,1.25,.64,1),width .35s ease,height .35s ease}
+.lang button{position:relative;z-index:1;transition:transform .15s ease}
+.lang button:active{transform:scale(.9)}
+.lang svg{transform-origin:50% 50%}
+.lang svg.spin{animation:spin .7s cubic-bezier(.34,1.56,.64,1)}
+@keyframes spin{from{transform:rotate(-200deg)}to{transform:rotate(0)}}
+.menu-btn{display:none;position:relative;width:48px;height:48px;border-radius:50%;background:var(--white);border:2.5px solid var(--ink);align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background-color .25s ease,transform .15s ease}
+.menu-btn:active{transform:scale(.92)}
+.menu-btn .bar{position:absolute;left:12px;height:2.5px;border-radius:2px;background:var(--ink);transition:transform .4s cubic-bezier(.34,1.4,.64,1),opacity .2s ease,width .3s ease,top .3s ease}
+.menu-btn .bar:nth-child(1){top:15px;width:19px}.menu-btn .bar:nth-child(2){top:20.5px;width:19px}.menu-btn .bar:nth-child(3){top:26px;width:12px}
+.menu-btn[aria-expanded="true"]{background:var(--sun)}
+.menu-btn[aria-expanded="true"] .bar:nth-child(1){top:20.5px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bar:nth-child(2){opacity:0;transform:scaleX(0)}
+.menu-btn[aria-expanded="true"] .bar:nth-child(3){top:20.5px;width:19px;transform:rotate(-45deg)}
+@keyframes menuItem{from{opacity:0;translate:0 -10px}to{opacity:1;translate:0 0}}
+@media (max-width:960px){
+  .menu-btn{display:inline-flex}
+  .nav-links{display:flex;visibility:hidden;opacity:0;transform:translateY(-14px) scale(.94);transform-origin:top right;transition:opacity .2s ease,transform .25s ease,visibility 0s linear .25s;position:absolute;left:var(--gutter);right:var(--gutter);top:calc(100% - 4px);flex-direction:column;align-items:stretch;gap:4px;background:var(--white);border:3px solid var(--ink);border-radius:24px;box-shadow:6px 6px 0 var(--ink);padding:14px}
+  .nav-links.open{visibility:visible;opacity:1;transform:none;transition:opacity .2s ease,transform .45s cubic-bezier(.34,1.4,.64,1),visibility 0s}
+  .nav-links.open>*:not([hidden]){animation:menuItem .45s cubic-bezier(.34,1.3,.64,1) backwards}
+  .nav-links.open>:nth-child(2){animation-delay:.05s}.nav-links.open>:nth-child(3){animation-delay:.1s}.nav-links.open>:nth-child(4){animation-delay:.15s}.nav-links.open>:nth-child(5){animation-delay:.2s}
+  .scrim{position:fixed;inset:0;z-index:25;background:rgba(22,20,58,.18);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s}
+  .scrim.open{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s}
+  .nav-links a:not(.btn){padding:12px 14px;border-radius:12px;font-size:18px}
+  .nav-links a:not(.btn):hover{background:var(--cream);text-decoration:none}
+  .nav-links .btn{margin-top:6px}
+  .lang svg{display:none}
+}
+@media (max-width:420px){.brand svg{height:38px}.brand span{font-size:17px}.lang button{min-width:40px;padding:0 6px}}
+@media (max-width:340px){.site-header .brand b{display:none}}
+@media (max-width:380px){.nav{gap:8px}.nav-tools{gap:6px}.brand{gap:8px}.brand svg{height:34px}.brand span{font-size:16px}.lang button{min-width:36px;padding:0 4px}
+  .menu-btn{width:44px;height:44px}.menu-btn .bar{left:10px}.menu-btn .bar:nth-child(1){top:13px}.menu-btn .bar:nth-child(2),.menu-btn[aria-expanded="true"] .bar:nth-child(1),.menu-btn[aria-expanded="true"] .bar:nth-child(3){top:18.5px}.menu-btn .bar:nth-child(3){top:24px}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(32px,5vw,64px);align-items:center;padding-block:clamp(24px,4vw,48px) clamp(64px,8vw,104px)}
+.hero-copy{display:flex;flex-direction:column;gap:28px}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:7px 15px;font-weight:700;font-size:15px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--mint);flex-shrink:0}
+.hero h1{font-size:clamp(42px,6vw,76px);letter-spacing:-0.035em;line-height:1.02}
+.tag{display:inline-block;background:var(--sun);border:3px solid var(--ink);border-radius:.28em;padding:0 .22em .08em;transform:rotate(-3deg);box-shadow:5px 5px 0 var(--ink);margin-top:.12em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.collage{position:relative;width:min(520px,100%);aspect-ratio:520/580;justify-self:center;container-type:inline-size}
+.collage>*{position:absolute}
+.c-back{left:9.6%;top:8.6%;width:80.8%;height:82.8%;background:var(--blue);border-radius:6.5cqw;transform:rotate(4deg)}
+.c-card{left:12.3%;top:12%;width:75%;background:var(--white);border:3px solid var(--ink);border-radius:5.4cqw;padding:6cqw;transform:rotate(-3deg);display:flex;flex-direction:column;gap:3.4cqw}
+.c-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.c-kick{font-size:max(10px,2.5cqw);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.c-langs{display:flex;gap:1.2cqw}
+.c-langs span{border:2px solid var(--ink);border-radius:1.6cqw;padding:.3cqw 1.5cqw;font-size:max(10px,2.5cqw);font-weight:700}
+.c-langs span:first-child{background:var(--sun)}
+.c-title{font-family:var(--display);font-weight:800;font-size:6.2cqw;line-height:1.05;letter-spacing:-0.02em}
+.c-lines{display:flex;flex-direction:column;gap:1.9cqw}
+.c-lines i{display:block;height:1.9cqw;border-radius:1cqw;background:var(--line)}
+.c-chips{display:flex;flex-wrap:wrap;gap:1.5cqw}
+.c-chips span{border:2px solid var(--ink);border-radius:999px;padding:1cqw 2.3cqw;font-size:max(10px,2.7cqw);font-weight:700}
+.c-tip{background:var(--ink);color:var(--cream);border-radius:3cqw;padding:2.6cqw 3cqw;font-size:max(11px,2.9cqw);font-weight:500;display:flex;gap:2cqw;align-items:center}
+.c-tip svg{width:4cqw;height:4cqw;flex-shrink:0}
+.c-star{left:1.5%;top:3%;width:13%}
+.c-disc{right:0;top:0;width:28.8%;aspect-ratio:1;border-radius:50%;background:var(--sun);transform:rotate(12deg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:5px 5px 0 var(--ink)}
+.c-disc b{font-family:var(--display);font-weight:800;font-size:6.9cqw;line-height:1}
+.c-disc small{font-size:2.7cqw;font-weight:700;margin-top:.6cqw}
+.c-one{left:0;bottom:10%;background:var(--pink);border-radius:3.8cqw;padding:2.6cqw 4.2cqw;transform:rotate(-8deg);font-family:var(--display);font-weight:800;font-size:5cqw;box-shadow:5px 5px 0 var(--ink)}
+.c-ready{right:2%;bottom:2%;background:var(--mint);border-radius:3.8cqw;padding:2.6cqw 3.8cqw;transform:rotate(5deg);font-weight:700;font-size:3.5cqw;display:flex;gap:1.5cqw;align-items:center;box-shadow:5px 5px 0 var(--ink)}
+.c-ready svg{width:4.2cqw;height:4.2cqw}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.collage{width:min(440px,100%)}}
+
+/* band */
+.band-clip{overflow:hidden;padding-block:18px}
+.band{background:var(--ink);color:var(--cream);transform:rotate(-1.5deg);margin-inline:-40px;padding-block:22px}
+.band ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:nowrap;white-space:nowrap;font-family:var(--display);font-weight:700;font-size:clamp(20px,2.2vw,30px)}
+.band li:nth-child(4n+2){color:var(--sun)}.band li:nth-child(4n){color:var(--pink)}
+.band li.sep:nth-child(4n+2){color:var(--sun)}
+
+/* sections */
+.section{padding-block:clamp(72px,9vw,128px)}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,56px)}
+.section-head .h2{max-width:14em}
+.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.service{border-radius:28px;padding:32px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .2s ease}
+.service:nth-child(odd){transform:rotate(-1deg)}.service:nth-child(even){transform:rotate(1deg)}
+.service:hover{transform:translateY(-6px)}
+.service h3{font-size:clamp(24px,2.2vw,28px);letter-spacing:-0.02em}
+.icon-tile{width:64px;height:64px;border-radius:18px;background:var(--white);border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center}
+.bg-sun{background:var(--sun)}.bg-pink{background:var(--pink)}.bg-mint{background:var(--mint)}.bg-lilac{background:var(--lilac)}
+@media (max-width:1080px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.services{grid-template-columns:1fr}.service{flex-direction:row;flex-wrap:wrap;align-items:flex-start;padding:24px}.service h3{flex:1;align-self:center}.service p{flex-basis:100%}.icon-tile{width:52px;height:52px}}
+
+.panel{background:var(--white);border:3px solid var(--ink);border-radius:clamp(28px,4vw,48px);padding:clamp(28px,6vw,88px) clamp(20px,6vw,80px)}
+.tabs{display:flex;gap:6px;background:var(--cream);border:2.5px solid var(--ink);border-radius:999px;padding:6px;flex-wrap:nowrap;max-width:100%}
+.tabs button{min-height:46px;padding:0 22px;border-radius:999px;border:2.5px solid transparent;background:transparent;color:var(--ink);font:700 17px var(--body);cursor:pointer;white-space:nowrap}
+.tabs{position:relative}
+.tabs .ind{background:var(--ink)}
+.tabs button{position:relative;z-index:1;transition:color .3s ease}
+.tabs button[aria-selected="true"]{color:var(--cream)}
+@media (max-width:600px){.tabs{width:100%;gap:2px;padding:4px}.tabs button{flex:1 1 auto;padding:0 8px;font-size:14px;min-width:0}}
+.subject{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:clamp(24px,3vw,40px);align-items:stretch}
+.subject-card{border-radius:32px;padding:clamp(24px,3vw,40px);box-shadow:8px 8px 0 var(--ink);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.subject-card .kick{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.subject-card h3{font-size:clamp(34px,4vw,48px);margin:12px 0 14px}
+.subject-card .btn{align-self:flex-start;box-shadow:4px 4px 0 var(--white);display:inline-block;max-width:100%;white-space:normal;line-height:1.3;padding:15px 24px}
+.subject-card,.topics,.topics li{min-width:0}
+.topics li{overflow-wrap:anywhere}
+#subject-label{white-space:nowrap}
+.topics{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.topics li{display:flex;align-items:center;gap:18px;background:var(--cream);border:2.5px solid var(--ink);border-radius:20px;padding:14px 20px;font-family:var(--display);font-weight:700;font-size:clamp(18px,1.8vw,23px);letter-spacing:-0.01em;line-height:1.2}
+.topics li span{width:42px;height:42px;flex-shrink:0;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;font-variant-numeric:tabular-nums}
+@media (max-width:860px){.subject{grid-template-columns:minmax(0,1fr)}}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;counter-reset:s}
+.step{border:3px dashed var(--ink);border-radius:32px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px}
+.step-n{width:68px;height:68px;border-radius:50%;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:32px}
+.step h3{font-size:clamp(24px,2.3vw,30px);letter-spacing:-0.02em}
+.step p{color:var(--ink-2)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.step{flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 16px}.step-n{width:52px;height:52px;font-size:24px}.step p{flex-basis:100%}}
+.center{text-align:center;margin-inline:auto}
+.accent{color:var(--blue)}
+
+.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.review{margin:0;border-radius:28px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;background:var(--white)}
+.review blockquote{margin:0;font-family:var(--display);font-weight:700;font-size:22px;line-height:1.3}
+@media (max-width:860px){.reviews{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--blue);color:var(--white);border:3px solid var(--ink);border-radius:clamp(28px,4vw,48px);padding:clamp(40px,6vw,88px) clamp(16px,5vw,72px);display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start;position:relative;overflow:hidden}
+.contact .blob{position:absolute;border-radius:50%;border:3px solid var(--ink)}
+.contact .b1{right:-80px;top:-80px;width:260px;height:260px;background:var(--sun)}
+.contact .b2{left:-70px;bottom:-110px;width:220px;height:220px;background:var(--pink)}
+.contact-info{position:relative;display:flex;flex-direction:column;gap:14px}
+.contact-info h2{font-size:clamp(40px,5vw,64px);line-height:.98;letter-spacing:-0.035em}
+.contact-info .lead{color:var(--blue-tint);margin-bottom:12px}
+.crow{display:flex;align-items:center;gap:14px;background:var(--cream);color:var(--ink);border:2.5px solid var(--ink);border-radius:18px;padding:12px 16px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+.crow:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.crow .ic{width:46px;height:46px;border-radius:12px;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.crow small{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.crow strong{display:block;font-family:var(--display);font-weight:800;font-size:clamp(16px,1.6vw,20px);overflow-wrap:anywhere}
+@media (max-width:900px){.contact{grid-template-columns:1fr}.contact .b2{display:none}.contact .b1{width:110px;height:110px;right:-50px;top:-50px}}
+
+.form{position:relative;background:var(--cream);color:var(--ink);border:3px solid var(--ink);border-radius:32px;box-shadow:8px 8px 0 var(--ink);padding:clamp(22px,3.5vw,40px);display:flex;flex-direction:column;gap:20px}
+.form h3{font-size:clamp(28px,2.6vw,34px);letter-spacing:-0.02em;line-height:1.05}
+.form .sub{color:var(--ink-2);font-size:15px;margin-top:6px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:600px){.row2{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field label,.legend{font-weight:700;font-size:15px}
+.input{width:100%;min-height:52px;border:2.5px solid var(--ink);border-radius:14px;padding:12px 16px;font:16px var(--body);color:var(--ink);background:var(--white)}
+.input::placeholder{color:#6E6B8F}
+textarea.input{min-height:104px;resize:vertical;line-height:1.5}
+select.input{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2316143A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:44px}
+fieldset{margin:0;padding:0;border:0;min-width:0}
+.legend{padding:0;margin-bottom:10px}
+.levels{display:flex;flex-wrap:wrap;gap:8px}
+.levels label{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:2.5px solid var(--ink);background:var(--white);font-weight:700;font-size:15px;cursor:pointer}
+.levels input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.levels input:focus-visible+span{outline:3px solid var(--blue);outline-offset:6px;border-radius:999px}
+.levels label:has(input:checked){box-shadow:3px 3px 0 var(--ink)}
+.levels label[data-l="o"]:has(input:checked){background:var(--sun)}
+.levels label[data-l="i"]:has(input:checked){background:var(--mint)}
+.levels label[data-l="a"]:has(input:checked){background:var(--pink)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.45;cursor:pointer}
+.consent input{width:22px;height:22px;margin:1px 0 0;flex-shrink:0;accent-color:var(--blue);cursor:pointer}
+.consent a{color:var(--blue);font-weight:700}
+.alert{background:var(--err-bg);border:2px solid var(--err-line);border-radius:12px;padding:12px 14px;color:var(--err);font-size:15px;font-weight:500}
+.form-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.form-foot .btn{min-height:56px}
+.form-foot .btn[disabled]{opacity:.7;cursor:progress}
+.form-foot span{font-size:15px;color:var(--ink-2)}
+.form-foot a{font-weight:700;color:var(--blue)}
+@media (max-width:600px){.form-foot{flex-direction:column;align-items:stretch;text-align:center}}
+.skip{position:absolute;left:-9999px;top:12px;z-index:100;background:var(--white);color:var(--ink);padding:10px 16px;border:2.5px solid var(--ink);border-radius:12px;font-weight:700}.skip:focus{left:16px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ok{display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding-block:24px}
+.ok .tick{width:80px;height:80px;border-radius:50%;background:var(--mint);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:4px 4px 0 var(--ink)}
+.ok h3{font-size:clamp(32px,3.4vw,44px)}
+.ok p{color:var(--ink-2)}
+
+.site-footer{padding-block:48px 56px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px 32px;flex-wrap:wrap;font-size:15px;color:var(--ink-2)}
+.foot .brand span{font-size:22px}
+.foot a{color:var(--ink-2)}
+
+.wa-float{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:10px;min-height:58px;padding:0 22px 0 12px;border-radius:999px;background:var(--mint);color:var(--ink);border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink);font-weight:700;font-size:16px;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease}
+.wa-float:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.wa-float .ic{width:36px;height:36px;border-radius:50%;background:var(--white);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center}
+@media (max-width:600px){.wa-float{padding:0;width:60px;height:60px;justify-content:center;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))}.wa-float .ic{border:0;background:transparent}.wa-float .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+/* scroll reveal (visible at rest; the entrance plays as a block reaches the screen) */
+.rv-go{animation:rvIn .8s cubic-bezier(.22,1.2,.36,1) backwards}
+.rv-go.rv-kids{animation:none}
+.rv-go.rv-kids>*{animation:rvIn .8s cubic-bezier(.22,1.2,.36,1) backwards}
+.rv-go.rv-tilt>*{animation-name:rvTilt}
+.rv-go.rv-kids>:nth-child(2){animation-delay:.09s}.rv-go.rv-kids>:nth-child(3){animation-delay:.18s}.rv-go.rv-kids>:nth-child(4){animation-delay:.27s}.rv-go.rv-kids>:nth-child(5){animation-delay:.36s}.rv-go.rv-kids>:nth-child(6){animation-delay:.45s}
+@keyframes rvIn{from{opacity:0;translate:0 48px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes rvTilt{from{opacity:0;translate:0 64px;rotate:-6deg;scale:.92}to{opacity:1;translate:0 0;rotate:0deg;scale:1}}
+/* language swap */
+[data-i18n],#subject-title,#subject-blurb,#subject-topics{transition:opacity .2s ease,filter .2s ease}
+html.lang-out [data-i18n],html.lang-out #subject-title,html.lang-out #subject-blurb,html.lang-out #subject-topics{opacity:0;filter:blur(4px)}
+.tag.pop{animation:pop .7s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{0%{transform:rotate(-3deg) scale(1)}35%{transform:rotate(-8deg) scale(1.14)}100%{transform:rotate(-3deg) scale(1)}}
+/* subject change */
+.subject-card{transition:background-color .45s ease}
+.subject-card.bump{animation:bump .6s cubic-bezier(.34,1.56,.64,1)}
+.subject-card.bump>*{animation:rise .45s ease both}
+.subject-card.bump>*+*{animation-delay:.08s}
+@keyframes bump{0%{transform:scale(.95) rotate(-2deg)}100%{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateX(var(--dx,24px))}to{opacity:1;transform:none}}
+.topics li.in{animation:topicIn .55s cubic-bezier(.34,1.3,.64,1) both;animation-delay:calc(var(--i) * 65ms)}
+.topics li.in span{animation:numPop .5s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i) * 65ms + 150ms)}
+@keyframes topicIn{from{opacity:0;transform:translateX(var(--dx,24px)) scale(.97)}to{opacity:1;transform:none}}
+@keyframes numPop{from{transform:scale(0) rotate(-90deg)}to{transform:scale(1) rotate(0)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aqbeż għall-kontenut</a>
+<div class="scrim" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="StudjiSoċjali.mt">
+      <svg viewBox="0 0 117 122" aria-hidden="true"><path d="M36 12H72A28 28 0 0 1 100 40V66A28 28 0 0 1 72 94H42L14 112L17 86Q8 78 8 66V40A28 28 0 0 1 36 12Z" transform="translate(6 6)" fill="#16143A"></path><path d="M36 12H72A28 28 0 0 1 100 40V66A28 28 0 0 1 72 94H42L14 112L17 86Q8 78 8 66V40A28 28 0 0 1 36 12Z" fill="#3A4BFF" stroke="#16143A" stroke-width="5" stroke-linejoin="round"></path><path d="M331 14Q267 14 215.0 2.0Q163 -10 125.0 -34.5Q87 -59 65.0 -97.0Q43 -135 39 -185L180 -232Q183 -190 204.0 -162.0Q225 -134 260.5 -120.5Q296 -107 340 -107Q382 -107 410.5 -117.5Q439 -128 453.5 -144.5Q468 -161 468 -180Q468 -202 449.0 -216.5Q430 -231 397.0 -241.5Q364 -252 320 -262Q270 -274 222.0 -288.0Q174 -302 135.0 -324.5Q96 -347 73.5 -382.5Q51 -418 51 -472Q51 -533 82.0 -578.0Q113 -623 173.0 -648.5Q233 -674 321 -674Q408 -674 469.0 -649.0Q530 -624 563.0 -579.5Q596 -535 599 -476L455 -435Q455 -464 445.5 -486.0Q436 -508 419.0 -522.5Q402 -537 377.0 -544.5Q352 -552 320 -552Q282 -552 255.5 -543.0Q229 -534 216.0 -519.5Q203 -505 203 -486Q203 -462 223.5 -446.5Q244 -431 279.5 -420.5Q315 -410 358 -400Q401 -391 447.0 -377.5Q493 -364 533.0 -342.0Q573 -320 597.5 -282.5Q622 -245 622 -188Q622 -127 589.5 -81.5Q557 -36 492.0 -11.0Q427 14 331 14Z" transform="translate(29.01 77.95) scale(0.0756)" fill="#ffffff"></path><circle cx="98" cy="18" r="14" fill="#FFC23D" stroke="#16143A" stroke-width="5"></circle></svg>
+      <span>StudjiSoċjali<b>.mt</b></span>
+    </a>
+    <div class="nav-tools">
+      <nav class="nav-links" id="nav-links" aria-label="Main">
+        <a href="#services" data-i18n="navServices">Is-servizzi</a>
+        <a href="#subjects" data-i18n="navSubjects">Suġġetti</a>
+        <a href="#how" data-i18n="navHow">Kif naħdmu</a>
+        <a href="#reviews" data-i18n="navReviews" hidden>Opinjonijiet</a>
+        <a class="btn btn-ink" href="#contact" data-i18n="book">Ibbukkja lezzjoni</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Lingwa / Language">
+        <span class="knob" aria-hidden="true"></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"></path></svg>
+        <button type="button" data-lang="mt" aria-pressed="true" lang="mt" title="Malti">MT</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+      </div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <span class="bar" aria-hidden="true"></span><span class="bar" aria-hidden="true"></span><span class="bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section id="top" class="wrap hero">
+    <div class="hero-copy">
+      <span class="badge"><span class="dot"></span><span data-i18n="badge">Lezzjonijiet privati ta&#x27; Studji Soċjali u Soċjoloġija f&#x27;Malta</span></span>
+      <h1><span data-i18n="heroA">Tagħlim interattiv, noti apposta u attenzjoni individwali sakemm </span><span class="tag" data-i18n="heroB">tirnexxi.</span></h1>
+      <p class="lead" data-i18n="heroP">Lezzjonijiet individwali għall-O-Level tal-Istudji Soċjali, u s-Soċjoloġija tal-Intermediate u tal-A-Level — b&#x27;noti mfassla għall-eżami bl-Ingliż u bil-Malti.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-blue" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg><span data-i18n="cta1">Ibbukkja l-ewwel lezzjoni</span></a>
+        <a class="btn btn-white" href="#subjects" data-i18n="cta2">Ara s-suġġetti</a>
+      </div>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <svg class="c-star" viewBox="0 0 24 24"><path d="M12 1l2.6 7.4L22 11l-7.4 2.6L12 21l-2.6-7.4L2 11l7.4-2.6z" fill="#FF5B3A" stroke="#16143A" stroke-width="1"></path></svg>
+      <div class="c-back sticker"></div>
+      <div class="c-card">
+        <div class="c-top"><span class="c-kick" data-i18n="cardKicker">O-Level · Tema 1</span><span class="c-langs"><span>EN</span><span>MT</span></span></div>
+        <div class="c-title" data-i18n="cardTitle">Kultura u Soċjalizzazzjoni</div>
+        <div class="c-lines"><i></i><i style="width:88%"></i><i style="width:94%"></i></div>
+        <div class="c-chips"><span style="background:#FFE3EE" data-i18n="chip1">Normi</span><span style="background:#D9F5EC" data-i18n="chip2">Valuri</span><span style="background:#FFF0C7" data-i18n="chip3">Aġenti tas-soċjalizzazzjoni</span></div>
+        <div class="c-lines"><i style="width:96%"></i><i style="width:70%"></i></div>
+        <div class="c-tip"><svg viewBox="0 0 24 24" fill="none" stroke="#FFC23D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"></path></svg><span data-i18n="tip">Tip għall-eżami: dejjem orbot it-teorija ma&#x27; eżempju Malti.</span></div>
+      </div>
+      <div class="c-disc sticker"><b>EN+MT</b><small data-i18n="notes">noti</small></div>
+      <div class="c-one sticker">1-on-1</div>
+      <div class="c-ready sticker"><svg viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg><span data-i18n="examReady">Lest għall-eżami</span></div>
+    </div>
+  </section>
+
+  <div class="band-clip" aria-hidden="true">
+    <div class="band"><ul>
+      <li data-i18n="b1">Kultura</li><li>✦</li><li data-i18n="b2">Familja</li><li>✦</li><li data-i18n="b3">Kriminalità u Devjanza</li><li>✦</li><li data-i18n="b4">Ġeneru</li><li>✦</li><li data-i18n="b5">Popolazzjoni</li><li>✦</li><li data-i18n="b6">Midja</li><li>✦</li><li data-i18n="b7">Benesseri</li><li>✦</li><li data-i18n="b8">Migrazzjoni</li>
+    </ul></div>
+  </div>
+
+  <section id="services" class="wrap section">
+    <div class="section-head">
+      <h2 class="h2" data-i18n="svcH">Dak kollu li għandek bżonn biex tidħol għall-eżami kunfidenti.</h2>
+      <p class="lead" style="max-width:24em" data-i18n="svcP">Lezzjonijiet mibnija madwarek — mhux klassi waħda għal kulħadd.</p>
+    </div>
+    <div class="services">
+      <article class="service sticker bg-sun"><div class="icon-tile"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5" fill="#16143A"></circle></svg></div><h3 data-i18n="s1">Sessjonijiet 1-on-1</h3><p data-i18n="s1d">Tagħlim personalizzat u ffukat fuq il-punti dgħajfa tiegħek.</p></article>
+      <article class="service sticker bg-pink"><div class="icon-tile"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4M10 7l4 3-4 3z"></path></svg></div><h3 data-i18n="s2">Lezzjonijiet Interattivi</h3><p data-i18n="s2d">Klassijiet ħajjin u prattiċi bi preżentazzjonijiet u għodod diġitali.</p></article>
+      <article class="service sticker bg-mint"><div class="icon-tile"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8M8 17h5"></path></svg></div><h3 data-i18n="s3">Noti Apposta</h3><p data-i18n="s3d">Gwidi ta&#x27; studju konċiżi, immirati lejn l-eżami u mfassla skont is-sillabu tiegħek.</p></article>
+      <article class="service sticker bg-lilac"><div class="icon-tile"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 9h3M9.5 9v4M14 13l1.5-4 1.5 4M14.5 12h2"></path></svg></div><h3 data-i18n="s4">Noti Multilingwi</h3><p data-i18n="s4d">Noti bl-Ingliż u bil-Malti, biex titgħallem bil-lingwa li tifhem l-aħjar.</p></article>
+    </div>
+  </section>
+
+  <div class="wrap">
+  <section id="subjects" class="panel">
+    <div class="section-head">
+      <div style="display:flex;flex-direction:column;gap:14px"><span class="eyebrow" data-i18n="navSubjects">Suġġetti</span><h2 class="h2" data-i18n="subH">Agħżel il-livell tiegħek.</h2></div>
+      <div class="tabs" role="tablist" aria-label="Level">
+        <span class="ind" aria-hidden="true"></span>
+        <button type="button" role="tab" id="tab-o" aria-controls="subject-panel" aria-selected="true" data-tab="o">O-Level</button>
+        <button type="button" role="tab" id="tab-i" aria-controls="subject-panel" aria-selected="false" tabindex="-1" data-tab="i">Intermediate</button>
+        <button type="button" role="tab" id="tab-a" aria-controls="subject-panel" aria-selected="false" tabindex="-1" data-tab="a">A-Level</button>
+      </div>
+    </div>
+    <div class="subject" id="subject-panel" role="tabpanel" aria-labelledby="tab-o">
+      <div class="subject-card sticker bg-sun" id="subject-card">
+        <div><span class="kick" id="subject-kick">SEC / O-Level</span><h3 id="subject-title">Studji Soċjali</h3><p id="subject-blurb">Il-ħames oqsma kollha tas-sillabu, b&#x27;noti bilingwi u prattika għall-eżami.</p></div>
+        <a class="btn btn-ink" href="#contact" id="subject-enquire"><span data-i18n="enquire">Staqsi dwar</span>&nbsp;<span id="subject-label">O-Level</span></a>
+      </div>
+      <ol class="topics" id="subject-topics"><li><span>1</span>Kultura u Soċjalizzazzjoni</li><li><span>2</span>Gruppi Soċjali u Istituzzjonijiet Soċjali</li><li><span>3</span>Popolazzjoni, Demografija u Ambjent</li><li><span>4</span>Benesseri Soċjali u Stratifikazzjoni Soċjali</li><li><span>5</span>Żgħażagħ, Kriminalità u Devjanza</li></ol>
+    </div>
+  </section>
+  </div>
+
+  <section id="how" class="wrap section">
+    <h2 class="h2 center" style="margin-bottom:clamp(32px,4vw,56px);max-width:16em"><span data-i18n="howA">Minn “għajnuna!” għal </span><span class="accent" data-i18n="howB">suċċess</span><span data-i18n="howC"> fi tliet passi.</span></h2>
+    <ol class="steps" style="list-style:none;margin:0;padding:0">
+      <li class="step"><span class="step-n bg-sun">1</span><h3 data-i18n="st1">Ikkuntattjana</h3><p data-i18n="st1d">Ċempel, ibgħat messaġġ jew email bil-livell u d-data tal-eżami tiegħek.</p></li>
+      <li class="step"><span class="step-n bg-pink">2</span><h3 data-i18n="st2">Ibda bi pjan</h3><p data-i18n="st2d">Insibu l-punti dgħajfa tiegħek u nibnu lezzjonijiet u noti madwar is-sillabu.</p></li>
+      <li class="step"><span class="step-n bg-mint">3</span><h3 data-i18n="st3">Irnexxi</h3><p data-i18n="st3d">Sessjonijiet interattivi u noti għall-eżami, sal-aħħar ġurnata.</p></li>
+    </ol>
+  </section>
+
+  <!-- REVIEWS: paste real reviews below, then remove the "hidden" attribute here AND on the Reviews link in the header. -->
+  <section id="reviews" class="wrap section" style="padding-top:0" hidden>
+    <div class="section-head"><h2 class="h2" data-i18n="revH">L-istudenti jgħiduha l-aħjar.</h2></div>
+    <div class="reviews">
+      <figure class="review sticker"><blockquote>“[Review text]”</blockquote><figcaption><strong>[Student name]</strong><br>[O-Level Social Studies]</figcaption></figure>
+      <figure class="review sticker"><blockquote>“[Review text]”</blockquote><figcaption><strong>[Student name]</strong><br>[Intermediate Sociology]</figcaption></figure>
+      <figure class="review sticker"><blockquote>“[Review text]”</blockquote><figcaption><strong>[Student name]</strong><br>[A-Level Sociology]</figcaption></figure>
+    </div>
+  </section>
+
+  <div class="wrap" style="padding-bottom:clamp(24px,4vw,48px)">
+  <section id="contact" class="contact">
+    <div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+    <div class="contact-info">
+      <h2 data-i18n="conH">Lest biex tirnexxi fl-Istudji Soċjali?</h2>
+      <p class="lead" data-i18n="conP">Ikkuntattjana biex tibbukkja lezzjoni jew biex tistaqsi dwar il-lezzjonijiet u n-noti.</p>
+      <a class="crow" href="https://wa.me/35679818376" target="_blank" rel="noopener"><span class="ic bg-mint"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"></path></svg></span><span><small>WhatsApp</small><strong data-i18n="waVal">Ibgħatilna messaġġ</strong></span></a>
+      <a class="crow" href="tel:+35679818376"><span class="ic bg-sun"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span><span><small data-i18n="lblCall">Ċempilna</small><strong>+356 7981 8376</strong></span></a>
+      <a class="crow" href="mailto:barbarakylie@outlook.com"><span class="ic bg-pink"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 6l-10 7L2 6"></path></svg></span><span><small>Email</small><strong>barbarakylie@outlook.com</strong></span></a>
+      <a class="crow" href="https://www.facebook.com/profile.php?id=61560081241114" target="_blank" rel="noopener"><span class="ic bg-lilac"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></span><span><small data-i18n="lblFollow">Segwina</small><strong>Facebook</strong></span></a>
+    </div>
+
+    <form class="form" id="enquiry" novalidate aria-labelledby="form-title">
+      <div id="form-fields" style="display:flex;flex-direction:column;gap:20px">
+        <div><h3 id="form-title" data-i18n="formTitle">Ibgħatilna mistoqsija</h3><p class="sub" data-i18n="formSub">Għidilna ftit dwarek u nikkuntattjawk aħna.</p></div>
+        <div class="row2">
+          <div class="field"><label for="f-name" data-i18n="fName">Ismek</label><input class="input" id="f-name" name="name" type="text" autocomplete="name" required data-i18n-ph="fNamePh" placeholder="eż. Maria Borg"></div>
+          <div class="field"><label for="f-contact" data-i18n="fContact">Telefon jew email</label><input class="input" id="f-contact" name="contact" type="text" autocomplete="tel" required data-i18n-ph="fContactPh" placeholder="Biex inwieġbuk"></div>
+        </div>
+        <fieldset>
+          <legend class="legend" data-i18n="fLevel">Livell</legend>
+          <div class="levels">
+            <label data-l="o"><input type="radio" name="level" id="f-level-o" value="O-Level"><span>O-Level</span></label>
+            <label data-l="i"><input type="radio" name="level" id="f-level-i" value="Intermediate"><span>Intermediate</span></label>
+            <label data-l="a"><input type="radio" name="level" id="f-level-a" value="A-Level"><span>A-Level</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="f-exam" data-i18n="fExam">Sessjoni tal-eżami</label>
+          <select class="input" id="f-exam" name="exam">
+            <option value="" data-i18n="exPick">Agħżel…</option>
+            <option value="May 2027" data-i18n="exMay">Mejju 2027</option>
+            <option value="September 2027" data-i18n="exSep">Settembru 2027</option>
+            <option value="Not sure yet" data-i18n="exUnsure">Għadni mhux ċert/a</option>
+          </select></div>
+        <div class="field"><label for="f-msg" data-i18n="fMsg">Messaġġ (mhux obbligatorju)</label><textarea class="input" id="f-msg" name="message" rows="3" data-i18n-ph="fMsgPh" placeholder="Liema temi qed issibhom l-aktar diffiċli?"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-hp">Leave empty</label><input id="f-hp" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="consent"><input type="checkbox" id="f-consent" name="consent"><span><span data-i18n="fConsent">Naqbel li tikkuntattjawni dwar il-lezzjonijiet.</span> <a href="privacy.html" data-i18n="fPrivacy">Avviż ta&#x27; privatezza</a></span></label>
+        <p class="alert" id="f-alert" role="alert" hidden></p>
+        <div class="form-foot">
+          <button class="btn btn-blue" type="submit" id="f-send" data-i18n="fSend">Ibgħat il-mistoqsija</button>
+          <span><span data-i18n="fOr">Tippreferi tkellimna?</span> <a href="https://wa.me/35679818376" target="_blank" rel="noopener">WhatsApp</a></span>
+        </div>
+      </div>
+      <div class="ok" id="form-ok" role="status" hidden>
+        <span class="tick"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg></span>
+        <h3 id="ok-title"></h3>
+        <p data-i18n="okBody">Irċevejna l-mistoqsija tiegħek u nikkuntattjawk dalwaqt.</p>
+        <button class="btn btn-white" type="button" id="ok-again" data-i18n="okAgain">Ibgħat mistoqsija oħra</button>
+      </div>
+    </form>
+  </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <a class="brand" href="#top"><span>StudjiSoċjali<b>.mt</b></span></a>
+    <span data-i18n="foot">Lezzjonijiet privati ta&#x27; Studji Soċjali u Soċjoloġija · Malta</span>
+    <span>© <span id="year">2026</span> StudjiSoċjali.mt · <a href="privacy.html" data-i18n="fPrivacy">Avviż ta&#x27; privatezza</a></span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/35679818376" target="_blank" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16143A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"></path></svg></span><span class="lbl" data-i18n="waFloat">Ibgħatilna fuq WhatsApp</span></a>
+
+<script>
+(function () {
+  /* ====== SETTINGS ====== */
+  // Where enquiries are sent. FormSubmit emails each enquiry to this address.
+  // The first time the form is used, FormSubmit sends a confirmation email to this inbox: click it once to activate.
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/barbarakylie@outlook.com';
+  var DEFAULT_LANG = 'mt';
+  /* ====================== */
+
+  var DATA = {"i18n": {"en": {"navServices": "What you get", "navSubjects": "Subjects", "navHow": "How it works", "navReviews": "Reviews", "book": "Book a session", "badge": "Private Social Studies & Sociology tuition in Malta", "badgeS": "Social Studies tuition · Malta", "heroA": "Interactive teaching, bespoke notes & individual attention until you ", "heroB": "ace it.", "heroP": "One-on-one lessons for O-Level Social Studies, Intermediate and A-Level Sociology — with exam-driven notes in English and Maltese.", "cta1": "Book your first session", "cta2": "See subjects", "cardKicker": "O-Level · Topic 1", "cardTitle": "Culture & Socialisation", "chip1": "Norms", "chip2": "Values", "chip3": "Agents of socialisation", "tip": "Exam tip: always link theory to a Maltese example.", "notes": "notes", "examReady": "Exam-ready", "b1": "Culture", "b2": "Family", "b3": "Crime & Deviance", "b3s": "Crime", "b4": "Gender", "b5": "Population", "b6": "Media", "b7": "Welfare", "b8": "Migration", "svcH": "Everything you need to walk into the exam confident.", "svcHs": "Everything you need to walk in confident.", "svcP": "Lessons built around you — not a one-size-fits-all class.", "s1": "1-on-1 Sessions", "s1d": "Focused, personalised tutoring that zeroes in on your weaknesses.", "s2": "Interactive Lessons", "s2d": "Live, hands-on classes using presentations and digital tools.", "s3": "Tailor-made Notes", "s3d": "Concise, exam-driven study guides crafted around your syllabus.", "s4": "Multi-Lingual Notes", "s4d": "Notes in English and Maltese, so you learn in the language you understand best.", "subH": "Pick your level.", "howA": "From “help!” to ", "howB": "ace it", "howC": " in three steps.", "st1": "Get in touch", "st1d": "Call, message or email with your level and exam date.", "st2": "Get a plan", "st2d": "We find your weak spots and build lessons and notes around your syllabus.", "st3": "Ace it", "st3d": "Interactive sessions and exam-driven notes, right up to exam day.", "revH": "Students say it best.", "conH": "Ready to ace Social Studies?", "conP": "Get in touch to book a session or ask anything about lessons and notes.", "lblCall": "Call", "lblFollow": "Follow", "foot": "Private Social Studies & Sociology tuition · Malta", "enquire": "Enquire about", "waFloat": "Chat on WhatsApp", "waVal": "Message us", "formTitle": "Send us an enquiry", "formSub": "Tell us a little about yourself and we'll get back to you.", "fName": "Your name", "fNamePh": "e.g. Maria Borg", "fContact": "Phone or email", "fContactPh": "So we can reply", "fLevel": "Level", "fExam": "Exam session", "exPick": "Choose…", "exMay": "May 2027", "exSep": "September 2027", "exUnsure": "Not sure yet", "fMsg": "Message (optional)", "fMsgPh": "Which topics do you find hardest?", "fConsent": "I agree to be contacted about lessons.", "fErr": "Please add your name, a phone or email, pick a level and tick the box.", "fSend": "Send enquiry", "fOr": "Prefer to chat?", "okTitle": "Thanks, {name}!", "okBody": "We've received your enquiry and will be in touch soon.", "okAgain": "Send another enquiry", "fPrivacy": "Privacy notice", "fSending": "Sending…", "fFail": "We couldn't send your enquiry. Please message us on WhatsApp or email barbarakylie@outlook.com."}, "mt": {"navServices": "Is-servizzi", "navSubjects": "Suġġetti", "navHow": "Kif naħdmu", "navReviews": "Opinjonijiet", "book": "Ibbukkja lezzjoni", "badge": "Lezzjonijiet privati ta' Studji Soċjali u Soċjoloġija f'Malta", "badgeS": "Lezzjonijiet ta' Studji Soċjali · Malta", "heroA": "Tagħlim interattiv, noti apposta u attenzjoni individwali sakemm ", "heroB": "tirnexxi.", "heroP": "Lezzjonijiet individwali għall-O-Level tal-Istudji Soċjali, u s-Soċjoloġija tal-Intermediate u tal-A-Level — b'noti mfassla għall-eżami bl-Ingliż u bil-Malti.", "cta1": "Ibbukkja l-ewwel lezzjoni", "cta2": "Ara s-suġġetti", "cardKicker": "O-Level · Tema 1", "cardTitle": "Kultura u Soċjalizzazzjoni", "chip1": "Normi", "chip2": "Valuri", "chip3": "Aġenti tas-soċjalizzazzjoni", "tip": "Tip għall-eżami: dejjem orbot it-teorija ma' eżempju Malti.", "notes": "noti", "examReady": "Lest għall-eżami", "b1": "Kultura", "b2": "Familja", "b3": "Kriminalità u Devjanza", "b3s": "Kriminalità", "b4": "Ġeneru", "b5": "Popolazzjoni", "b6": "Midja", "b7": "Benesseri", "b8": "Migrazzjoni", "svcH": "Dak kollu li għandek bżonn biex tidħol għall-eżami kunfidenti.", "svcHs": "Kulma għandek bżonn biex tidħol kunfidenti.", "svcP": "Lezzjonijiet mibnija madwarek — mhux klassi waħda għal kulħadd.", "s1": "Sessjonijiet 1-on-1", "s1d": "Tagħlim personalizzat u ffukat fuq il-punti dgħajfa tiegħek.", "s2": "Lezzjonijiet Interattivi", "s2d": "Klassijiet ħajjin u prattiċi bi preżentazzjonijiet u għodod diġitali.", "s3": "Noti Apposta", "s3d": "Gwidi ta' studju konċiżi, immirati lejn l-eżami u mfassla skont is-sillabu tiegħek.", "s4": "Noti Multilingwi", "s4d": "Noti bl-Ingliż u bil-Malti, biex titgħallem bil-lingwa li tifhem l-aħjar.", "subH": "Agħżel il-livell tiegħek.", "howA": "Minn “għajnuna!” għal ", "howB": "suċċess", "howC": " fi tliet passi.", "st1": "Ikkuntattjana", "st1d": "Ċempel, ibgħat messaġġ jew email bil-livell u d-data tal-eżami tiegħek.", "st2": "Ibda bi pjan", "st2d": "Insibu l-punti dgħajfa tiegħek u nibnu lezzjonijiet u noti madwar is-sillabu.", "st3": "Irnexxi", "st3d": "Sessjonijiet interattivi u noti għall-eżami, sal-aħħar ġurnata.", "revH": "L-istudenti jgħiduha l-aħjar.", "conH": "Lest biex tirnexxi fl-Istudji Soċjali?", "conP": "Ikkuntattjana biex tibbukkja lezzjoni jew biex tistaqsi dwar il-lezzjonijiet u n-noti.", "lblCall": "Ċempilna", "lblFollow": "Segwina", "foot": "Lezzjonijiet privati ta' Studji Soċjali u Soċjoloġija · Malta", "enquire": "Staqsi dwar", "waFloat": "Ibgħatilna fuq WhatsApp", "waVal": "Ibgħatilna messaġġ", "formTitle": "Ibgħatilna mistoqsija", "formSub": "Għidilna ftit dwarek u nikkuntattjawk aħna.", "fName": "Ismek", "fNamePh": "eż. Maria Borg", "fContact": "Telefon jew email", "fContactPh": "Biex inwieġbuk", "fLevel": "Livell", "fExam": "Sessjoni tal-eżami", "exPick": "Agħżel…", "exMay": "Mejju 2027", "exSep": "Settembru 2027", "exUnsure": "Għadni mhux ċert/a", "fMsg": "Messaġġ (mhux obbligatorju)", "fMsgPh": "Liema temi qed issibhom l-aktar diffiċli?", "fConsent": "Naqbel li tikkuntattjawni dwar il-lezzjonijiet.", "fErr": "Jekk jogħġbok niżżel ismek, telefon jew email, agħżel livell u immarka l-kaxxa.", "fSend": "Ibgħat il-mistoqsija", "fOr": "Tippreferi tkellimna?", "okTitle": "Grazzi, {name}!", "okBody": "Irċevejna l-mistoqsija tiegħek u nikkuntattjawk dalwaqt.", "okAgain": "Ibgħat mistoqsija oħra", "fPrivacy": "Avviż ta' privatezza", "fSending": "Qed jintbagħat…", "fFail": "Ma stajniex nibagħtu l-mistoqsija. Jekk jogħġbok ibgħatilna fuq WhatsApp jew email fuq barbarakylie@outlook.com."}}, "subjects": {"en": [["Social Studies", "All five syllabus areas, with bilingual notes and exam practice.", ["Culture & Socialisation", "Social Groups & Social Institutions", "Population, Demography & Environment", "Social Welfare & Social Stratification", "Youth, Crime & Deviance"]], ["Sociology", "Four core topics, taught with theory, evidence and Maltese examples.", ["Culture & Identity", "Family", "Media & Communication", "Welfare & Social Policy"]], ["Sociology", "The Intermediate core plus four advanced topics, built for top grades.", ["All Intermediate Level topics", "Gender & Sexuality", "Crime & Deviance", "Environment", "Race, Ethnicity & Migration"]]], "mt": [["Studji Soċjali", "Il-ħames oqsma kollha tas-sillabu, b'noti bilingwi u prattika għall-eżami.", ["Kultura u Soċjalizzazzjoni", "Gruppi Soċjali u Istituzzjonijiet Soċjali", "Popolazzjoni, Demografija u Ambjent", "Benesseri Soċjali u Stratifikazzjoni Soċjali", "Żgħażagħ, Kriminalità u Devjanza"]], ["Soċjoloġija", "Erba' temi ewlenin, mgħallma bit-teorija, evidenza u eżempji Maltin.", ["Kultura u Identità", "Familja", "Midja u Komunikazzjoni", "Benesseri u Politika Soċjali"]], ["Soċjoloġija", "Il-qalba tal-Intermediate flimkien ma' erba' temi avvanzati, għall-ogħla gradi.", ["It-temi kollha tal-Intermediate", "Ġeneru u Sesswalità", "Kriminalità u Devjanza", "Ambjent", "Razza, Etniċità u Migrazzjoni"]]]}};
+  var I18N = DATA.i18n, SUBJECTS = DATA.subjects;
+  var META = { o: { label: 'O-Level', kicker: 'SEC / O-Level', cls: 'bg-sun', idx: 0 },
+               i: { label: 'Intermediate', kicker: 'Intermediate Level', cls: 'bg-mint', idx: 1 },
+               a: { label: 'A-Level', kicker: 'Advanced Level', cls: 'bg-pink', idx: 2 } };
+  var TITLES = { mt: "StudjiSoċjali.mt — Lezzjonijiet ta' Studji Soċjali u Soċjoloġija", en: 'StudjiSoċjali.mt — Social Studies & Sociology tuition in Malta' };
+  var lang = DEFAULT_LANG, tab = 'o';
+
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  var q = (location.search.match(/[?&]lang=(mt|en)/) || [])[1];
+  lang = q || store('ss-lang') || DEFAULT_LANG;
+  if (!I18N[lang]) lang = DEFAULT_LANG;
+
+  function t(k) { return (I18N[lang] && I18N[lang][k]) || I18N.en[k] || ''; }
+  var $ = function (s) { return document.querySelector(s); };
+
+  var REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function slide(marker, btn) {
+    if (!marker || !btn) return;
+    marker.style.width = btn.offsetWidth + 'px'; marker.style.height = btn.offsetHeight + 'px';
+    marker.style.transform = 'translate(' + btn.offsetLeft + 'px,' + btn.offsetTop + 'px)';
+  }
+  function moveMarkers() {
+    slide($('.lang .knob'), document.querySelector('.lang [aria-pressed="true"]'));
+    slide($('.tabs .ind'), document.querySelector('.tabs [aria-selected="true"]'));
+  }
+  function restart(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+
+  function renderSubject(animate, dir) {
+    var m = META[tab], d = SUBJECTS[lang][m.idx];
+    var card = $('#subject-card');
+    card.className = 'subject-card sticker ' + m.cls;
+    $('#subject-panel').style.setProperty('--dx', ((dir || 1) * 28) + 'px');
+    $('#subject-kick').textContent = m.kicker;
+    $('#subject-title').textContent = d[0];
+    $('#subject-blurb').textContent = d[1];
+    $('#subject-label').textContent = m.label;
+    var ol = $('#subject-topics'); ol.textContent = '';
+    d[2].forEach(function (name, i) {
+      var li = document.createElement('li'), n = document.createElement('span');
+      n.textContent = String(i + 1); li.appendChild(n); li.appendChild(document.createTextNode(name));
+      if (animate) { li.className = 'in'; li.style.setProperty('--i', i); }
+      ol.appendChild(li);
+    });
+    if (animate) restart(card, 'bump');
+    document.querySelectorAll('[data-tab]').forEach(function (b) {
+      var on = b.getAttribute('data-tab') === tab;
+      b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1;
+      if (on) $('#subject-panel').setAttribute('aria-labelledby', b.id);
+    });
+    moveMarkers();
+  }
+
+  function applyLang(animate) {
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { el.textContent = t(el.getAttribute('data-i18n')); });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) { el.setAttribute('placeholder', t(el.getAttribute('data-i18n-ph'))); });
+    document.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
+    renderSubject(animate, 1);
+    if (!$('#f-alert').hidden) $('#f-alert').textContent = t($('#f-alert').getAttribute('data-key'));
+  }
+
+  document.querySelectorAll('[data-lang]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var next = b.getAttribute('data-lang'); if (next === lang) return;
+      store('ss-lang', next);
+      document.querySelectorAll('[data-lang]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      moveMarkers(); restart($('.lang svg'), 'spin');
+      document.documentElement.classList.add('lang-out');
+      setTimeout(function () {
+        lang = next; applyLang(true);
+        document.documentElement.classList.remove('lang-out');
+        restart($('.tag'), 'pop');
+      }, REDUCED ? 0 : 200);
+    });
+  });
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-tab]'));
+  var ORDER = ['o', 'i', 'a'];
+  function go(next) { if (next === tab) return; var dir = ORDER.indexOf(next) > ORDER.indexOf(tab) ? 1 : -1; tab = next; renderSubject(true, dir); }
+  tabs.forEach(function (b, i) {
+    b.addEventListener('click', function () { go(b.getAttribute('data-tab')); });
+    b.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return;
+      e.preventDefault(); var nb = tabs[(i + d + tabs.length) % tabs.length]; go(nb.getAttribute('data-tab')); nb.focus();
+    });
+  });
+  $('#subject-enquire').addEventListener('click', function () { var r = document.getElementById('f-level-' + tab); if (r) r.checked = true; });
+
+  var menuBtn = $('.menu-btn'), links = $('#nav-links');
+  var scrim = $('.scrim');
+  function setMenu(open) { links.classList.toggle('open', open); scrim.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  menuBtn.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
+  links.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  scrim.addEventListener('click', function () { setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && links.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+
+  /* scroll reveal: content stays visible at rest; each block plays its entrance as it approaches the screen */
+  if (!REDUCED && 'IntersectionObserver' in window) {
+    var targets = [['.band', ''], ['#services .section-head', 'rv-kids'], ['.services', 'rv-kids rv-tilt'], ['#subjects', ''], ['#how h2', ''], ['.steps', 'rv-kids'],
+                   ['#reviews .reviews', 'rv-kids'], ['.contact-info', 'rv-kids'], ['.form', ''], ['.foot', 'rv-kids']];
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target; io.unobserve(el);
+        (el.getAttribute('data-rv') || '').split(' ').forEach(function (c) { if (c) el.classList.add(c); });
+        el.classList.add('rv-go');
+      });
+    }, { rootMargin: '0px 0px 60px 0px' });
+    targets.forEach(function (tg) {
+      var el = $(tg[0]); if (!el || el.getBoundingClientRect().top < window.innerHeight) return;
+      el.setAttribute('data-rv', tg[1]); io.observe(el);
+    });
+  }
+
+  var form = $('#enquiry'), alertEl = $('#f-alert'), send = $('#f-send');
+  function showAlert(key) { alertEl.setAttribute('data-key', key); alertEl.textContent = t(key); alertEl.hidden = false; }
+  form.addEventListener('input', function () { alertEl.hidden = true; });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var fd = new FormData(form);
+    var name = String(fd.get('name') || '').trim(), contact = String(fd.get('contact') || '').trim(), level = fd.get('level');
+    if (!name || !contact || !level || !$('#f-consent').checked) { showAlert('fErr'); return; }
+    if (fd.get('_honey')) return;
+    send.disabled = true; send.textContent = t('fSending');
+    var payload = { name: name, contact: contact, level: level, exam: fd.get('exam') || '-', message: fd.get('message') || '-', language: lang === 'mt' ? 'Malti' : 'English',
+      _subject: 'Mistoqsija ġdida / New enquiry — ' + name + ' (' + level + ')', _template: 'table', _captcha: 'false' };
+    fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (res) {
+        if (res && (res.success === false || res.success === 'false')) throw new Error('rejected');
+        var first = name.split(/\s+/)[0];
+        $('#ok-title').textContent = t('okTitle').replace('{name}', first);
+        $('#form-fields').hidden = true; $('#form-ok').hidden = false; $('#ok-title').focus && $('#ok-title').setAttribute('tabindex', '-1'); $('#ok-title').focus();
+      })
+      .catch(function () { showAlert('fFail'); })
+      .then(function () { send.disabled = false; send.textContent = t('fSend'); });
+  });
+  $('#ok-again').addEventListener('click', function () { form.reset(); $('#form-ok').hidden = true; $('#form-fields').hidden = false; $('#f-name').focus(); });
+
+  $('#year').textContent = String(new Date().getFullYear());
+  applyLang(false);
+  moveMarkers();
+  requestAnimationFrame(function () { requestAnimationFrame(function () { $('.lang').classList.add('ready'); $('.tabs').classList.add('ready'); }); });
+  window.addEventListener('resize', moveMarkers);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveMarkers);
+})();
+</script>
+
+</body>
+</html>
